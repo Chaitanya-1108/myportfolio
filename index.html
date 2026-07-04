@@ -723,7 +723,7 @@
 
                 <!-- Functional Quick Connect Email Form -->
                 <div class="md:col-span-3">
-                    <form action="mailto:chaitanyadeshpande663@gmail.com" method="GET" enctype="text/plain" class="space-y-4">
+                    <form id="contactForm" class="space-y-4">
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Subject / System Query</label>
                             <input type="text" name="subject" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-neoncyan transition-colors" placeholder="e.g. Data Infrastructure Project Sync">
@@ -886,6 +886,17 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+        document.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const subject = document.querySelector("[name='subject']").value;
+    const message = document.querySelector("[name='body']").value;
+
+    window.location.href =
+    `mailto:chaitanyadeshpande663@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+});
     </script>
 </body>
 </html>
